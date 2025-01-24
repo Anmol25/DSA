@@ -86,6 +86,17 @@ class LinkedList:
             count += 1
         return count
 
+    def middle(self):
+        count = 0
+        pt1 = self.head
+        pt2 = self.head
+        while (pt2.next != None):
+            if (count % 2 == 0):
+                pt1 = pt1.next
+            pt2 = pt2.next
+            count += 1
+        return pt1
+
     def __len__(self):
         return self.size
 
@@ -118,6 +129,9 @@ def main():
     print(len(ll))
 
     print("Location of 3:", ll.search(3))
+
+    middle_ll = ll.middle().data
+    print("Middle of Linked List: ", middle_ll)
 
 
 if __name__ == "__main__":

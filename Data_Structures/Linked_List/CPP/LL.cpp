@@ -137,6 +137,25 @@ class LinkedList{
         }
         return count;
     }
+
+    // Middle Of Linked List Using Two Pointer Approach
+    static Node *Middle(LinkedList *LL){
+        if (LL == NULL){
+            return NULL;
+        }
+        int count = 1;
+        Node *pt1 = LL->head;
+        Node *pt2 = LL->head;
+        while (pt2->next != NULL)
+        {
+            if(count %2 == 0){
+                pt1 = pt1->next;
+            }
+            pt2 = pt2->next;
+            count++;
+        }
+        return pt1;
+    }
 };
 
 int main(){
@@ -161,5 +180,12 @@ int main(){
     l1->print();
 
     cout<<"Location of 6: "<<l1->search(6)<<endl;
+
+    // Middle Of Linked List
+    Node *Middle = LinkedList::Middle(l1);
+
+    cout<<"Middle Of Linked List: "<<Middle->data<<endl;
+
+    
     return 0;
 }
