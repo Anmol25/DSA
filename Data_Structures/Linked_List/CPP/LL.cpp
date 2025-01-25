@@ -156,6 +156,19 @@ class LinkedList{
         }
         return pt1;
     }
+
+    static Node *Reverse(LinkedList *LL){
+        Node *curr = LL->head;
+        Node *prev = NULL;
+        while (curr != NULL)
+        {
+            Node *n = curr->next;
+            curr->next = prev;
+            prev = curr;
+            curr = n;
+        }
+        return prev;
+    }
 };
 
 int main(){
@@ -186,6 +199,9 @@ int main(){
 
     cout<<"Middle Of Linked List: "<<Middle->data<<endl;
 
+    // Reverse Linked List
+    l1->head = LinkedList::Reverse(l1);
+    l1->print();
     
     return 0;
 }
